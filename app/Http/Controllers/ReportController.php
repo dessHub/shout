@@ -69,6 +69,7 @@ class ReportController extends Controller
         $report->admNo  = Input::get('admNo');
         $report->school    = Input::get('school');
         $report->complaint = Input::get('complaint');
+        $report->status = Input::get('status');
 
         // save report
         $report->save();
@@ -85,6 +86,48 @@ class ReportController extends Controller
          return view('myreports')->with('reports', $name);
 
      }
+
+     public function viewPending() {
+           $name = Report::where(['status'=> 'pending'])->get();
+           return view('viewreports')->with('reports', $name);
+
+      }
+
+     public function receive(Request $request) {
+        $report_obj = new Report();
+        $report_obj->id = Request::input('id');
+        $report = Report::find($report_obj->id); // Eloquent Model
+        $report->update(Input::only('status'));
+        return redirect('/pending');
+    }
+
+      public function allReports() {
+          $name = Report::get();
+          return view('reports')->with('reports', $name);
+
+      }
+
+      public function viewClosing() {
+            $name = Report::where(['status'=> 'received'])->get();
+            return view('closing')->with('reports', $name);
+
+       }
+
+      public function close(Request $request) {
+         $report_obj = new Report();
+         $report_obj->id = Request::input('id');
+         $report = Report::find($report_obj->id); // Eloquent Model
+         $report->update(Input::only('status'));
+         return redirect('/close');
+     }
+
+     public function viewClosed() {
+           $name = Report::where(['status'=> 'closed'])->get();
+           return view('reports')->with('reports', $name);
+
+      }
+
+
 
 
 

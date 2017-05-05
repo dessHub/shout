@@ -13,7 +13,7 @@
                 @elseif(Auth::user()->role == 'admin')
 
                  <div class="panel-body">
-                     There is/are {{ $reports }} new Reports.
+                     There is/are {{ $reports }} new Reports. <a href="/pending">view</a>
 
                  </div>
                  @endif

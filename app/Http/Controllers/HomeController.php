@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $name = Report::count();
+        $name = Report::where(['status' => "pending"])->count();
 
         return view('home')->with('reports', $name);
     }

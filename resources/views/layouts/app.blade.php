@@ -14,15 +14,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
+    <link href="./resources/css/app.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Lato';
-        }
 
-        .fa-btn {
-            margin-right: 6px;
-        }
     </style>
 </head>
 <body id="app-layout">
@@ -55,7 +49,17 @@
                       <li><a href="{{ url('/report') }}">Launch Complaint</a></li>
                       <li><a href="{{ url('/myreports/'.Auth::user()->id) }}">My Complaints</a></li>
                        @else
-                         <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                             <li class="dropdown">
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                      View Reports<span class="caret"></span>
+                                 </a>
+
+                                 <ul class="dropdown-menu" role="menu">
+                                     <li><a href="{{ url('/pending') }}"><i class="fa fa-btn fa-sign-out"></i>Pending</a></li>
+                                     <li><a href="{{ url('/close') }}"><i class="fa fa-btn fa-sign-out"></i>Received</a></li>
+                                     <li><a href="{{ url('/closed') }}"><i class="fa fa-btn fa-sign-out"></i>Closed</a></li>
+                                 </ul>
+                             </li>
                        @endif
                     @endif
                 </ul>

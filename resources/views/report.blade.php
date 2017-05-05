@@ -12,9 +12,10 @@
 
                         <div class="form-group">
                             <div class="col-md-6">
-                                <input class="form-control" type="hidden" id="fname" type="text" class="form-control" name="fname" value="{{ Auth::user()->fname }}">
-                                <input class="form-control" type="hidden" id="lname" type="text" class="form-control" name="lname" value="{{ Auth::user()->fname }}">
+                                <input class="form-control" type="hidden" id="fname" name="fname" value="{{ Auth::user()->fname }}">
+                                <input class="form-control" type="hidden" id="lname" name="lname" value="{{ Auth::user()->fname }}">
                                 <input class="form-control" type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}"/>
+                                <input class="form-control" type="hidden" name="status" id="status" value="pending"/>
 
                             </div>
                             </div>

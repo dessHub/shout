@@ -24,6 +24,7 @@ class CreateReportsTable extends Migration
               $table->string('admNo');
               $table->string('school');
               $table->string('complaint');
+              $table->string('status');
               $table->timestamps('created_at');
           });
 

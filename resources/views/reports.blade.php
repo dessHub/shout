@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">My Complaints</div>
+                <div class="panel-heading">Complaints</div>
 
                 <div class="panel-body">
                     <div>
@@ -15,6 +15,13 @@
                             <thead>
                             <tr>
                                 <th>Report ID</th>
+                                <th>First Name </th>
+                                <th>First Name </th>
+                                <th>Adm No </th>
+                                <th>School </th>
+                                <th>Guardian First Name </th>
+                                <th>Guardian Last Name </th>
+                                <th>Guardian Mobile No </th>
                                 <th>Report </th>
                                 <th>Status </th>
                                 <th>Reported On</th>
@@ -26,23 +33,21 @@
                             @foreach($reports as $report)
                                 <tr>
                                     <td>{{ $report->id }}</td>
+                                    <td>{{ $report->fname }}</td>
+                                    <td>{{ $report->fname }}</td>
+                                    <td>{{ $report->admNo }}</td>
+                                    <td>{{ $report->school }}</td>
+                                    <td>{{ $report->guardian_fname }}</td>
+                                    <td>{{ $report->guardian_lname }}</td>
+                                    <td>{{ $report->guardian_phone }}</td>
                                     <td>{{ $report->complaint }}</td>
                                     <td>{{ $report->status }}</td>
                                     <td>{{ $report->created_at }}</td>
                                     <td>
 
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-info">Action</button>
-                                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                                                    <span class="caret"></span>
-                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                <button type="button" class="btn btn-info " data-toggle="modal" data-target="#{{ $report->id }}">View
                                                 </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                        <li data-toggle="modal" data-target="#acceptModal" data-bookingid="{{ $report->id }}"><a href="{{ url('report/edit/'.$report->id) }}">View/ Edit</a>
-                                                        </li>
-
-                                                    <li><a href="{{ url('/report/delete/'.$report->id)}}">Delete</a></li>
-                                                </ul>
                                             </div>
 
                                     </td>
@@ -58,4 +63,27 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+@foreach($reports as $report)
+<div id="{{ $report->id }}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Accept the Report</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+@endforeach
 @endsection

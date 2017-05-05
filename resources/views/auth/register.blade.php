@@ -29,7 +29,7 @@
 
                             <div class="col-md-6">
                                 <input id="lname" type="text" class="form-control" name="lname" value="{{ old('lname') }}">
-                                <input class="form-control" type="hidden" name="role" id="role" value="normal"/>
+                                <input class="form-control" type="hidden" name="role" id="role" value="admin"/>
                                 @if ($errors->has('lname'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('lname') }}</strong>
