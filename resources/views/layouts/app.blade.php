@@ -18,7 +18,7 @@
     <style>
     body {
           font-family: 'Lato';
-          background-color: green;
+          background-color: silver;
       }
 
     .fa-btn {
@@ -69,6 +69,8 @@
                                      <li><a href="{{ url('/closed') }}"><i class="fa fa-btn fa-sign-out"></i>Closed</a></li>
                                  </ul>
                              </li>
+                            <li><a href="{{ url('/users') }}">Users</a></li>
+                           <li><a href="{{ url('/admins') }}">Admins</a></li>
                        @endif
                     @endif
                 </ul>

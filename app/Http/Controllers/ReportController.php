@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Report;
+use App\User;
 use Validator;
 use App\Http\Requests;
 use Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use SMSProvider;
 
 class ReportController extends Controller
 {
@@ -74,6 +76,8 @@ class ReportController extends Controller
         // save report
         $report->save();
 
+         SMSProvider::sendMessage($report->guardian_phone, $report->complaint);
+
         // redirect ----------------------------------------
         // redirect our user back to the form so they can do it all over again
         return Redirect::to('report');
@@ -124,6 +128,26 @@ class ReportController extends Controller
      public function viewClosed() {
            $name = Report::where(['status'=> 'closed'])->get();
            return view('reports')->with('reports', $name);
+
+      }
+
+      public function viewUsers() {
+            $name = User::where(['role'=> 'normal'])->get();
+            return view('users')->with('users', $name);
+
+       }
+
+      public function makeAdmin(Request $request) {
+         $user_obj = new User();
+         $user_obj->id = Request::input('id');
+         $user = User::find($user_obj->id); // Eloquent Model
+         $user->update(Input::only('role'));
+         return redirect('/admins');
+     }
+
+     public function viewAdmins() {
+           $name = User::where(['role'=> 'admin'])->get();
+           return view('admins')->with('users', $name);
 
       }
 

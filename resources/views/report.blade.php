@@ -80,7 +80,7 @@
                             <label for="guardian_phone" class="col-md-4 control-label">Guardian Mobile No</label>
 
                             <div class="col-md-6">
-                                <input id="guardian_phone" type="text" class="form-control" name="guardian_phone">
+                                <input id="guardian_phone" type="text" class="form-control" name="guardian_phone" placeholder="should start with +254">
 
                                 @if ($errors->has('guardian_phone'))
                                     <span class="help-block">

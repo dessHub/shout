@@ -41,3 +41,6 @@ $this->get('all', 'ReportController@allReports');
 $this->get('close', 'ReportController@viewClosing');
 $this->post('close', 'ReportController@close');
 $this->get('closed', 'ReportController@viewClosed');
+$this->get('users', 'ReportController@viewUsers');
+$this->post('roles', 'ReportController@makeAdmin');
+$this->get('admins', 'ReportController@viewAdmins');

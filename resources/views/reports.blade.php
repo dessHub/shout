@@ -73,9 +73,52 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Accept the Report</h4>
+        <h4 class="modal-title">Report Details</h4>
       </div>
       <div class="modal-body">
+        <div>
+          <div><u>Student Details</u></div>
+         <div class="row">
+          <div class="col-md-6">
+           <h4><strong>First Name: </strong> {{ $report->fname }}</h4>
+          </div>
+           <div class="col-md-6">
+            <h4><strong>Last Name: </strong>  {{ $report->lname }}</h4>
+          </div>
+         </div>
+          <div class="row">
+           <div class="col-md-6">
+            <h4><strong>Adm No: </strong> {{ $report->admNo }}</h4>
+           </div>
+            <div class="col-md-6">
+             <h4><strong>School: </strong>  {{ $report->school }}</h4>
+           </div>
+          </div>
+
+             <div><u>Guardians Details</u></div>
+            <div class="row">
+             <div class="col-md-6">
+              <h4><strong>First Name: </strong> {{ $report->guardian_fname }}</h4>
+             </div>
+              <div class="col-md-6">
+               <h4><strong>Last Name: </strong>  {{ $report->guardian_lname }}</h4>
+             </div>
+            </div>
+             <div class="row">
+              <div class="col-md-6">
+               <h4><strong>Phone NO: </strong> {{ $report->guardian_phone }}</h4>
+              </div>
+               <div class="col-md-6">
+              </div>
+             </div>
+
+             <div><u>Report</u></div>
+              <div class="row">
+               <div class="col-md-12">
+                <p>{{ $report->complaint }}</p>
+               </div>
+              </div>
+        </div>
 
       </div>
       <div class="modal-footer">
