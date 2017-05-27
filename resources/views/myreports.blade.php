@@ -18,7 +18,6 @@
                                 <th>Report </th>
                                 <th>Status </th>
                                 <th>Reported On</th>
-                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -29,23 +28,6 @@
                                     <td>{{ $report->complaint }}</td>
                                     <td>{{ $report->status }}</td>
                                     <td>{{ $report->created_at }}</td>
-                                    <td>
-
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-info">Action</button>
-                                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                                                    <span class="caret"></span>
-                                                    <span class="sr-only">Toggle Dropdown</span>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                        <li data-toggle="modal" data-target="#acceptModal" data-bookingid="{{ $report->id }}"><a href="{{ url('report/edit/'.$report->id) }}">View/ Edit</a>
-                                                        </li>
-
-                                                    <li><a href="{{ url('/report/delete/'.$report->id)}}">Delete</a></li>
-                                                </ul>
-                                            </div>
-
-                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

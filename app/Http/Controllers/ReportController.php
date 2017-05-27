@@ -60,6 +60,7 @@ class ReportController extends Controller
         // report has passed all tests!
         // let him enter the database
 
+        $sms = "You have a new complaint.";
         // create the data for report
         $report = new Report;
         $report->fname     = Input::get('fname');
@@ -76,7 +77,15 @@ class ReportController extends Controller
         // save report
         $report->save();
 
-         SMSProvider::sendMessage($report->guardian_phone, $report->complaint);
+        $text = "$report->fname has file an abuse report.";
+
+
+         SMSProvider::sendMessage($report->guardian_phone, $text);
+         $admins = User::where('role','=','admin')->get();
+
+         foreach($admins as $admin) {
+        SMSProvider::sendMessage($admin->phoneNo, $sms);
+    }
 
         // redirect ----------------------------------------
         // redirect our user back to the form so they can do it all over again

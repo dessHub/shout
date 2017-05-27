@@ -52,6 +52,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="phoneNo" class="col-md-4 control-label">Mobile No:</label>
+
+                            <div class="col-md-6">
+                                <input id="phoneNo" type="text" class="form-control" name="phoneNo" value="{{ old('phoneNo') }}" placeholder="Phone No must begin with +2547">
+
+                                @if ($errors->has('phoneNo'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phoneNo') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

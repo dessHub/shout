@@ -66,7 +66,7 @@
         <h4 class="modal-title">Confirm</h4>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('/role') }}">
+        <form class="form-horizontal" role="form" method="POST" action="{{ url('/roles') }}">
             {{ csrf_field() }}
 
             <div class="form-group">
