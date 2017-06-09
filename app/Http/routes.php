@@ -34,7 +34,7 @@ $this->post('password/reset', 'Auth\PasswordController@reset');
 // App Routes
 $this->get('report', 'ReportController@showReport');
 $this->post('report', 'ReportController@postReport');
-$this->get('myreports/{user_id}', 'ReportController@myReports');
+$this->get('myreports{user_id}', 'ReportController@myReports');
 $this->get('pending', 'ReportController@viewPending');
 $this->post('receive', 'ReportController@receive');
 $this->get('all', 'ReportController@allReports');

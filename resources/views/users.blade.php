@@ -34,7 +34,6 @@
                                     <td>{{ $user->role }}</td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>
-
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-info " data-toggle="modal" data-target="#{{ $user->id }}">Change Roles
                                                 </button>
